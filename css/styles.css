@@ -172,7 +172,7 @@ img {
     padding-top: 188px;
     padding-bottom: 188px;
 
-    background-image: linear-gradient(rgba(46, 47, 66, 0.7), rgba(46, 47, 66, 0.7)), url(../images/hero-image.png);
+    background-image: linear-gradient(rgba(46, 47, 66, 0.7), rgba(46, 47, 66, 0.7)), url(../images/hero-bg.jpg);
     background-size: cover;
     background-repeat: no-repeat;
     background-color: var(--background-color-dark);
@@ -348,10 +348,7 @@ img {
 }
 
 .worker-description {
-    padding-top: 32px;
-    padding-bottom: 32px;
-    padding-right: 16px;
-    padding-left: 16px;
+    padding: 32px 0;
 }
 .socials {
     display: flex;
@@ -386,6 +383,8 @@ img {
 
 .clients-title{
     margin-bottom: 72px;
+
+    line-height: 1.1;
 }
 
 .clients-list{
@@ -503,6 +502,10 @@ align-items: baseline;
 .socials-link-footer:hover,
 .socials-link-footer:focus {
     background-color: #31d0aa;
+}
+
+.socials-icon-footer{
+    fill: var(--secondary-text-color-theme-dark);
 }
 
 .portfolio-btn-list {
