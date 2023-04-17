@@ -500,6 +500,11 @@ align-items: baseline;
     border-radius: 50%;
 }
 
+.socials-link-footer:hover,
+.socials-link-footer:focus {
+    background-color: #31d0aa;
+}
+
 .portfolio-btn-list {
     display: flex;
     justify-content: center;
