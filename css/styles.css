@@ -10,7 +10,15 @@
 --accent-color: #4d5ae5;
 --main-hover-color: #404bbf;
 --icon-fill: #8e8f99;
+--modal-color: #fcfcfc;
+--trans-hover: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
+
+/**
+  |============================
+  | General Styles
+  |============================
+*/
 
 .container-header {
     display: flex;
@@ -67,6 +75,12 @@ img {
     overflow: hidden;
   }
 
+/**
+  |============================
+  | Header
+  |============================
+*/
+
 .page-header {
     border-bottom: 1px solid #e7e9fc;
     box-shadow: 0px 2px 1px rgba(46, 47, 66, 0.08), 0px 1px 1px rgba(46, 47, 66, 0.16), 0px 1px 6px rgba(46, 47, 66, 0.08);
@@ -95,6 +109,8 @@ img {
 }
 
 .menu-link {
+    position: relative;
+
     display: block;
     padding-top: 24px;
     padding-bottom: 24px;
@@ -106,6 +122,8 @@ img {
     letter-spacing: 0.02em;
 
     color: var(--primary-text-color-theme-light);
+
+    transition: color var(--trans-hover);
 }
 
 .menu-link:hover,
@@ -114,6 +132,26 @@ img {
 
 }
 
+.menu-link::after {
+    content: '';
+    display: block;
+
+    position: absolute;
+    width: 100%;
+    height: 4px;
+    bottom: 0;
+    left: 0;
+
+    border-radius: 2px;
+}
+
+.menu-link.current {
+    color: var(--main-hover-color);
+}
+
+.menu-link.current::after {
+    background: var(--main-hover-color);
+}
 
 .logo-header {
     margin-right: 76px;
@@ -151,6 +189,8 @@ img {
     letter-spacing: 0.02em;
 
     color: var(--secondary-text-color-theme-light);
+
+    transition: color var(--trans-hover);
 }
 
 .tel-email-item {
@@ -166,6 +206,11 @@ img {
     color: var(--main-hover-color);
 }
 
+/**
+  |============================
+  | Hero Styles
+  |============================
+*/
 
 .hero {
     margin-right: auto;
@@ -217,6 +262,8 @@ img {
     color: var(--primary-text-color-theme-dark);
     background-color: var(--accent-color);
 
+    transition: background-color var(--trans-hover);
+
     cursor: pointer;
 }
 
@@ -224,6 +271,12 @@ img {
 .order-btn:focus {
     background-color: var(--main-hover-color);
 }
+
+/**
+  |============================
+  | Features Styles
+  |============================
+*/
 
 .features {
     padding-top: 120px;
@@ -250,8 +303,6 @@ img {
     border-radius: 4px;
 }
 
-
-
 .feature-subtitle {
     margin-bottom: 8px;
     margin-top: 0;
@@ -273,6 +324,12 @@ img {
       
     color: var(--secondary-text-color-theme-light);
 }
+
+/**
+  |============================
+  | Functions Styles
+  |============================
+*/
 
 .second-header {
     text-align: center;
@@ -301,6 +358,12 @@ img {
 .function-item {
     width: calc((100% - 3 * 16px) / 3);
 }
+
+/**
+  |============================
+  | Team Styles
+  |============================
+*/
 
 .our-team {
     padding-top: 120px;
@@ -367,6 +430,8 @@ img {
 
     background-color: var(--accent-color);
     border-radius: 50%;
+
+    transition: background-color var(--trans-hover);
 }
 
 .socials-link:hover,
@@ -377,6 +442,12 @@ img {
 .socials-icon {
     fill: var(--secondary-text-color-theme-dark);
 }
+
+/**
+  |============================
+  | Clients Styles
+  |============================
+*/
 
 .clients {
     padding-top: 120px;
@@ -412,6 +483,8 @@ img {
     border-radius: 4px;
 
     color: var(--icon-fill);
+
+    transition: border-color var(--trans-hover), color var(--trans-hover);
 }
 
 .clients-link:hover,
@@ -423,6 +496,12 @@ img {
 .clients-icon {
     fill: currentColor;
 }
+
+/**
+  |============================
+  | Footer Styles
+  |============================
+*/
 
 .page-footer {
     padding-top: 100px;
@@ -499,6 +578,8 @@ align-items: baseline;
 
     background-color: var(--accent-color);
     border-radius: 50%;
+
+    transition: background-color var(--trans-hover);
 }
 
 .socials-link-footer:hover,
@@ -509,6 +590,12 @@ align-items: baseline;
 .socials-icon-footer{
     fill: var(--secondary-text-color-theme-dark);
 }
+
+/**
+  |============================
+  | Porfolio Styles
+  |============================
+*/
 
 .portfolio-btn-list {
     display: flex;
@@ -534,6 +621,8 @@ align-items: baseline;
     
     color: var(--accent-color);
     background-color: var(--secondary-text-color-theme-dark);
+
+    transition: border var(--trans-hover), color var(--trans-hover), background-color var(--trans-hover), box-shadow var(--trans-hover);
 }
 
 .card-btn:hover,
@@ -565,6 +654,8 @@ align-items: baseline;
 
 .portfolio-card-link {
     display: block;
+
+    transition: box-shadow var(--trans-hover);
 }
 
 .portfolio-card-link:hover,
@@ -583,6 +674,44 @@ align-items: baseline;
     width: calc((100% - 48px) / 3);
 }
 
+.portfolio-item:hover .overlay {
+    transform: translate(0);
+}
+
+.portfolio-card-box {
+    position: relative;
+
+    overflow: hidden;
+}
+
+.overlay {
+    position: absolute;
+    left: 0;
+    top: 0;
+    transform: translateY(100%);
+
+    width: 100%;
+    height: 100%;
+    padding-top: 40px;
+
+    display: flex;
+
+    background: var(--accent-color);
+
+    transition: transform var(--trans-hover);
+}
+
+.overlay-card-description {
+    font-family: var(--main-font);
+    font-size: 16px;
+    line-height: 1.5;
+    letter-spacing: 0.02em;
+
+    padding: 0 32px;
+
+    color: var(--secondary-text-color-theme-dark);
+}
+
 .card-name-category {
     padding: 32px 16px;
     border: 1px solid #e7e9fc;
@@ -595,4 +724,39 @@ align-items: baseline;
     letter-spacing: 0.02em;
     
     color: var(--secondary-text-color-theme-light);
+}
+
+/**
+  |============================
+  | Modal Styles
+  |============================
+*/
+
+.backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    background: rgba(46, 47, 66, 0.4);
+}
+.modal {
+    position: absolute;
+    top: calc(50% - 288px);
+    left: calc(50% - 204px);
+
+    width: 408px;
+    min-height: 576px;
+    padding: 24px;
+
+    background-color: var(--modal-color);
+    box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 2px 1px rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+}
+.modal-btn {
+    display: block;
+    margin-left: auto;
+}
+.modal-icon {
 }
